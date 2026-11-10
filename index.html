@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Primele cuvinte">
+<meta name="theme-color" content="#eaf1f4">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADiklEQVR4Xu3dQXLTQBCGUYfiOHBAYA0ckAuxSFUwSSSrHbm7Z+a9tXHi8ZffLozC05fvvy7wnk+OhS3iQBzEWQ4sB3GWA8tBnOXAchBnObAcxFkOLAdxlgPLQZzlwHIQZzmwHMRZDiwHcZYDy0Gc5cByEGc5sBzEWQ4sB3GWA8tBnOXAchBnObAcxFkOLAdxlgPLQdzn+B/J8+fnt7wvVufrj991X3zPU8NfUrtIE291q6RRHMs20baSLm9IlXGtyWnUL0eTg+ip9oWmeDmUsa/2fCrjqH3koyg8pbI4Ch/zcKrOqiaOqkc7rpITK4ij5HFOIP/cCuJgFNlx5Oc/k+TTS40j+bFNKfMMU+NgLOJgU14cmXs4t7STzIuD4YiD6peVtCVcRM55Wg6ql4MRWQ4sB3GWA8tBnOXAchBnObAcxFkONrW+yv6IV9eE3f2hQ7f76SDpcsi7n7MdO5cKhr5ct/s5aOfbPsuoLyv7R3P84LrdTytDxnHkuR/xNt2MF8eRZ/1Zt1U4/p03MV4cpBksjugP39btu91PT4PFQSZxsEkciIO4wZYj9Fefl8vm7bvdT0+DxUGm8eI4/kO/f8tu99PQeHHsvFhcO/Lcd7tNN0PGcbOPI8/6s27r0srAH9k/6/bvMM76fm6K/iXvHYaPY1kJcYz6skICcbBJHIiDOMuB5SDOcmA5iLMcWA7iLAfVy5HwQcBScs7TclC9HIwobzlylnAFaSeZFwfDEQc93nOk7eHEMs8wezkyH9t8kk8vOw4GUhBHcv7TyD+3gjhu/kIm3sov43IpikMfISVlVMahj4OqyiiOQx83FZZxuWRd8XbT8atbF1GbxbOaN6RN3nC11aGMRstxbdkVadLEi6QLqe+zSCXdmhgjjiMeEVDbZytZl/ccfSjjhTj+o4xr4vhHGa8M/994nUIW77Icyti0ehw2Y8fScShj37pxKOOmReNQxhErxqGMg5aLQxnHrRWHMkIWikMZUavEoYw7LBGHMu4zfxzKuNvkcSjjI6b9VFYWHzfncijjFBPGoYyzzBaHMk40VRzKONc8cSjjdJPEoYxHmCEOZTxI68shqTXDcvAg4mCTOBAHcZYDy0Gc5cByEGc5sBzEWQ4sB3GWA8tBnOXAchBnObAcxFkOLAdxlgPLQZzlwHIQZzmwHMRZDiwHcZYDy0Gc5cByEGc5sBzEWQ4sB3F/ARBz7QzVf7CWAAAAAElFTkSuQmCC">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADiklEQVR4Xu3dQXLTQBCGUYfiOHBAYA0ckAuxSFUwSSSrHbm7Z+a9tXHi8ZffLozC05fvvy7wnk+OhS3iQBzEWQ4sB3GWA8tBnOXAchBnObAcxFkOLAdxlgPLQZzlwHIQZzmwHMRZDiwHcZYDy0Gc5cByEGc5sBzEWQ4sB3GWA8tBnOXAchBnObAcxFkOLAdxlgPLQdzn+B/J8+fnt7wvVufrj991X3zPU8NfUrtIE291q6RRHMs20baSLm9IlXGtyWnUL0eTg+ip9oWmeDmUsa/2fCrjqH3koyg8pbI4Ch/zcKrOqiaOqkc7rpITK4ij5HFOIP/cCuJgFNlx5Oc/k+TTS40j+bFNKfMMU+NgLOJgU14cmXs4t7STzIuD4YiD6peVtCVcRM55Wg6ql4MRWQ4sB3GWA8tBnOXAchBnObAcxFkONrW+yv6IV9eE3f2hQ7f76SDpcsi7n7MdO5cKhr5ct/s5aOfbPsuoLyv7R3P84LrdTytDxnHkuR/xNt2MF8eRZ/1Zt1U4/p03MV4cpBksjugP39btu91PT4PFQSZxsEkciIO4wZYj9Fefl8vm7bvdT0+DxUGm8eI4/kO/f8tu99PQeHHsvFhcO/Lcd7tNN0PGcbOPI8/6s27r0srAH9k/6/bvMM76fm6K/iXvHYaPY1kJcYz6skICcbBJHIiDOMuB5SDOcmA5iLMcWA7iLAfVy5HwQcBScs7TclC9HIwobzlylnAFaSeZFwfDEQc93nOk7eHEMs8wezkyH9t8kk8vOw4GUhBHcv7TyD+3gjhu/kIm3sov43IpikMfISVlVMahj4OqyiiOQx83FZZxuWRd8XbT8atbF1GbxbOaN6RN3nC11aGMRstxbdkVadLEi6QLqe+zSCXdmhgjjiMeEVDbZytZl/ccfSjjhTj+o4xr4vhHGa8M/994nUIW77Icyti0ehw2Y8fScShj37pxKOOmReNQxhErxqGMg5aLQxnHrRWHMkIWikMZUavEoYw7LBGHMu4zfxzKuNvkcSjjI6b9VFYWHzfncijjFBPGoYyzzBaHMk40VRzKONc8cSjjdJPEoYxHmCEOZTxI68shqTXDcvAg4mCTOBAHcZYDy0Gc5cByEGc5sBzEWQ4sB3GWA8tBnOXAchBnObAcxFkOLAdxlgPLQZzlwHIQZzmwHMRZDiwHcZYDy0Gc5cByEGc5sBzEWQ4sB3F/ARBz7QzVf7CWAAAAAElFTkSuQmCC">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Primele cuvinte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap">
+<style>
+/* Layout: un singur ecran calm pentru tableta. Sus alegerea modului, la mijloc cardurile mari, jos butonul discret pentru parinte. */
+:root {
+  --bg: #eaf1f4;
+  --surface: #ffffff;
+  --ink: #1d3340;
+  --ink-soft: #55707e;
+  --line: #cfdde4;
+  --accent: #2c7a86;
+  --accent-ink: #ffffff;
+  --star: #f0b240;
+  --tint-persoana: #fbf0cf;
+  --tint-obiect: #dff0ea;
+  --tint-altceva: #e3e9f7;
+  --tint-animal: #fbe3dc;
+  --danger: #b3412f;
+  --font-display: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12212a; --surface: #1b2f3a; --ink: #e6f0f4; --ink-soft: #9db6c2; --line: #2e4856;
+    --accent: #6cc3cd; --accent-ink: #0e1d24; --star: #f3c25f;
+    --tint-persoana: #4a4122; --tint-obiect: #1f4a42; --tint-altceva: #2b3558; --tint-animal: #4d3028; --danger: #ef8d7c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12212a; --surface: #1b2f3a; --ink: #e6f0f4; --ink-soft: #9db6c2; --line: #2e4856;
+  --accent: #6cc3cd; --accent-ink: #0e1d24; --star: #f3c25f;
+  --tint-persoana: #4a4122; --tint-obiect: #1f4a42; --tint-altceva: #2b3558; --tint-animal: #4d3028; --danger: #ef8d7c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px;
+  padding-block: 12px 88px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 62rem; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; margin: 0; letter-spacing: .01em; }
+.modes { display: inline-flex; background: var(--surface); border: 2px solid var(--line); border-radius: 999px; padding: 4px; gap: 4px; }
+.modes button { border: 0; background: transparent; padding: 10px 20px; border-radius: 999px; font-family: var(--font-display); font-size: 1.1rem; min-height: 48px; }
+.modes button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+.bar { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 2px solid var(--line); border-radius: 20px; padding: 10px 16px; min-height: 84px; width: 100%; text-align: left; }
+.bar[hidden] { display: none !important; }
+.bar .lead { font-family: var(--font-display); font-size: 1.8rem; font-weight: 500; }
+.bar .slot { display: flex; align-items: center; gap: 10px; min-height: 60px; min-width: 7rem; border-radius: 14px; padding: 4px 14px; background: var(--bg); font-family: var(--font-display); font-size: 1.8rem; }
+.bar .slot.empty { color: var(--ink-soft); font-size: 1.1rem; font-family: var(--font-body); }
+.bar img { width: 52px; height: 52px; object-fit: cover; border-radius: 10px; }
+.bar .em { font-size: 2.4rem; line-height: 1; }
+
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 44%), 1fr)); }
+.card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 6px; border: 2px solid var(--line); border-radius: 24px; padding: 14px 10px 12px; min-height: 11.5rem; transition: transform .15s ease; text-align: center; }
+.card:active { transform: scale(.97); }
+.card.persoana { background: var(--tint-persoana); }
+.card.obiect { background: var(--tint-obiect); }
+.card.altceva { background: var(--tint-altceva); }
+.card.animal { background: var(--tint-animal); }
+.card .pic { flex: 1; display: grid; place-items: center; width: 100%; min-height: 0; }
+.card .pic .em { font-size: 4.4rem; line-height: 1; }
+.card .pic img { width: 100%; max-width: 7.5rem; aspect-ratio: 1; object-fit: cover; border-radius: 16px; }
+.card .w { font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; overflow-wrap: anywhere; }
+.card.add { background: transparent; border-style: dashed; color: var(--ink-soft); font-family: var(--font-display); font-size: 1.2rem; justify-content: center; }
+.edit-tag { position: absolute; top: 8px; right: 8px; background: var(--surface); border: 2px solid var(--line); border-radius: 999px; padding: 4px 10px; font-size: .8rem; font-weight: 700; }
+
+.dock { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: flex-end; align-items: center; gap: 12px; pointer-events: none;
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.dock > * { pointer-events: auto; }
+.lock { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); color: var(--ink-soft); display: grid; place-items: center; touch-action: none; user-select: none; -webkit-user-select: none; }
+.lock svg { width: 24px; height: 24px; }
+.lock.hold { border-color: var(--accent); color: var(--accent); }
+.parentbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: var(--surface); border: 2px solid var(--accent); border-radius: 18px; padding: 10px 14px; }
+.parentbar span { font-weight: 700; margin-right: auto; }
+.parentbar[hidden] { display: none !important; }
+
+.btn { border: 2px solid var(--line); background: var(--surface); border-radius: 14px; padding: 10px 18px; min-height: 48px; font-weight: 700; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.danger { color: var(--danger); }
+.btn.big { min-height: 64px; font-family: var(--font-display); font-size: 1.3rem; border-radius: 18px; padding: 12px 24px; }
+
+.sheet { position: fixed; inset: 0; z-index: 20; background: var(--bg); overflow-y: auto;
+  padding-block: calc(16px + env(safe-area-inset-top, 0px)) calc(24px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sheet[hidden] { display: none !important; }
+.sheet .inner { max-width: 40rem; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; min-height: 100%; }
+.sheet .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.sheet h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 0; }
+.big-view { align-items: center; text-align: center; }
+.big-view .stage { width: 100%; border-radius: 32px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px; border: 2px solid var(--line); position: relative; }
+.big-view .stage.persoana { background: var(--tint-persoana); }
+.big-view .stage.obiect { background: var(--tint-obiect); }
+.big-view .stage.altceva { background: var(--tint-altceva); }
+.big-view .stage.animal { background: var(--tint-animal); }
+.big-view .em { font-size: min(34vw, 11rem); line-height: 1.1; }
+.big-view img { width: min(70vw, 18rem); aspect-ratio: 1; object-fit: cover; border-radius: 28px; }
+.big-view .word { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.6rem, 11vw, 4.4rem); line-height: 1.1; overflow-wrap: anywhere; }
+.big-view .syl { font-family: var(--font-display); font-size: 1.6rem; color: var(--ink-soft); letter-spacing: .12em; }
+.row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; width: 100%; }
+.praise { font-family: var(--font-display); font-size: 1.5rem; min-height: 2.2rem; display: flex; align-items: center; gap: 10px; }
+.praise svg { width: 34px; height: 34px; color: var(--star); fill: currentColor; animation: pop .5s ease both; }
+@keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .praise svg { animation: none; } .card { transition: none; } }
+.pcount { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+form { display: flex; flex-direction: column; gap: 14px; }
+label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
+label small { font-weight: 400; color: var(--ink-soft); }
+input[type="text"], select { font: inherit; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); min-height: 48px; width: 100%; }
+.preview { display: flex; align-items: center; gap: 12px; }
+.preview img { width: 72px; height: 72px; border-radius: 12px; object-fit: cover; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+th { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
+td.n { text-align: right; }
+.scroll { overflow-x: auto; }
+.note { background: var(--surface); border: 2px solid var(--line); border-radius: 16px; padding: 14px 16px; line-height: 1.5; }
+.note ul { margin: 6px 0 0; padding-left: 1.2rem; }
+.warn { color: var(--danger); font-weight: 700; }
+.toast { position: fixed; z-index: 40; left: max(16px, env(safe-area-inset-left, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(76px + env(safe-area-inset-bottom, 0px)); background: var(--ink); color: var(--bg); border-radius: 16px; padding: 14px 16px; font-weight: 700; line-height: 1.4; max-width: 36rem; margin: 0 auto; }
+.toast[hidden] { display: none !important; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; border: 2px solid var(--line); background: var(--surface); border-radius: 999px; padding: 8px 18px; min-height: 48px; font-family: var(--font-display); font-size: 1.05rem; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.modes button { padding: 10px 16px; }
+.modes #mPractice { border: 2px solid var(--accent); color: var(--accent); }
+.hint { margin: 0; color: var(--ink-soft); line-height: 1.5; }
+.pickgrid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(8rem, 44%), 1fr)); }
+.pick { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; background: var(--surface); border: 2px solid var(--line); border-radius: 18px; padding: 12px 8px; min-height: 6.5rem; font-family: var(--font-display); font-size: 1.05rem; text-align: center; overflow-wrap: anywhere; }
+.pick .pe { font-size: 2.2rem; line-height: 1.1; }
+.pick img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; }
+.pick.on { border-color: var(--accent); background: var(--bg); box-shadow: inset 0 0 0 2px var(--accent); }
+.pick .ord { position: absolute; top: 6px; left: 6px; min-width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-size: .9rem; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+.startbar { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; background: var(--bg); padding-block: 12px; margin-top: auto; border-top: 2px solid var(--line); }
+.startbar span { font-weight: 700; flex: 1 1 12rem; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.prmain { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.dots { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); }
+.dot.done { background: var(--accent); border-color: var(--accent); }
+.dot.now { border-color: var(--accent); box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent); }
+.parentbox { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px; border: 2px dashed var(--line); border-radius: 20px; }
+.parentbox > span { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); }
+.parentbox .btn { min-height: 56px; font-size: 1.1rem; }
+.endview { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 16px; padding-top: 8px; }
+.endview .bigstar { width: 120px; height: 120px; color: var(--star); fill: currentColor; animation: pop .6s ease both; }
+.endview h2 { font-family: var(--font-display); font-size: 2.2rem; margin: 0; }
+.endview p { margin: 0; font-size: 1.2rem; color: var(--ink-soft); }
+@media (prefers-reduced-motion: reduce) { .endview .bigstar { animation: none; } }
+.micbox { display: flex; flex-direction: column; gap: 12px; background: var(--surface); border: 2px solid var(--line); border-radius: 18px; padding: 14px 16px; }
+.meter { position: relative; height: 14px; width: 100%; max-width: 22rem; border-radius: 999px; background: var(--line); overflow: hidden; }
+.mfill { height: 100%; width: 0%; background: var(--accent); border-radius: 999px; }
+.mthr { position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: var(--ink); opacity: .45; }
+.micline { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 6px; min-height: 2.4rem; }
+.mstate { font-weight: 700; color: var(--ink-soft); }
+.okmsg { font-weight: 700; color: var(--accent); }
+textarea { font: inherit; padding: 10px 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); width: 100%; min-height: 6rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Primele cuvinte</h1>
+    <div class="modes" role="group" aria-label="Mod">
+      <button type="button" id="mWord" aria-pressed="true">Cuvinte</button>
+      <button type="button" id="mWant" aria-pressed="false">Vreau…</button>
+      <button type="button" id="mPractice">Exersăm</button>
+    </div>
+  </header>
+
+  <div class="parentbar" id="parentbar" hidden>
+    <span>Mod părinte</span>
+    <button type="button" class="btn" id="openPanel">Progres și setări</button>
+    <button type="button" class="btn" id="exitParent">Ieșire</button>
+  </div>
+
+  <div class="chips" id="chips" role="group" aria-label="Categorii"></div>
+
+  <button type="button" class="bar" id="bar" hidden aria-label="Ascultă propoziția din nou">
+    <span class="lead">Vreau</span>
+    <span class="slot empty" id="slot">alege o poză</span>
+  </button>
+
+  <main class="grid" id="grid"></main>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<div class="dock">
+  <button type="button" class="lock" id="lock" aria-label="Zona părinților: ține apăsat două secunde">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+  </button>
+</div>
+
+<!-- Vedere mare pentru un cuvant -->
+<div class="sheet" id="view" hidden>
+  <div class="inner big-view">
+    <div class="top" style="width:100%">
+      <button type="button" class="btn" id="viewClose">‹ Înapoi</button>
+      <span></span>
+    </div>
+    <div class="stage" id="stage">
+      <div id="viewPic"></div>
+      <div class="word" id="viewWord"></div>
+      <div class="syl" id="viewSyl"></div>
+    </div>
+    <div class="row">
+      <button type="button" class="btn big primary" id="hear">Ascultă</button>
+      <button type="button" class="btn big" id="hearSyl">Pe silabe</button>
+      <button type="button" class="btn big" id="tryIt">Încerc și eu</button>
+    </div>
+    <div class="praise" id="praise" aria-live="polite"></div>
+    <div class="pcount" id="pcount" hidden>
+      <button type="button" class="btn" id="logTried">Părinte: a încercat +1</button>
+      <button type="button" class="btn" id="logSaid">Părinte: a spus +1</button>
+    </div>
+  </div>
+</div>
+
+<!-- Editor de cuvant -->
+<div class="sheet" id="editor" hidden>
+  <div class="inner">
+    <div class="top"><h2 id="edTitle">Cuvânt nou</h2><button type="button" class="btn" id="edCancel">Închide</button></div>
+    <form id="edForm">
+      <label for="fWord">Cuvânt
+        <input type="text" id="fWord" autocomplete="off" required maxlength="24">
+      </label>
+      <label for="fSyl">Silabe <small>cu cratimă, de exemplu ma-ma. Dacă lași gol, se folosește cuvântul întreg.</small>
+        <input type="text" id="fSyl" autocomplete="off" maxlength="40">
+      </label>
+      <label for="fKind">Tip
+        <select id="fKind">
+          <option value="obiect">Lucru sau mâncare (se spune „Vreau …”)</option>
+          <option value="persoana">Persoană</option>
+          <option value="animal">Animal</option>
+          <option value="altceva">Altceva (Gata, Ajutor, Mai vreau)</option>
+        </select>
+      </label>
+      <label for="fCat">Categorie
+        <select id="fCat"></select>
+      </label>
+      <label for="fPhoto">Poză reală <small>Recomandat: o poză cu obiectul ei preferat sau cu persoana. Rămâne doar pe acest dispozitiv.</small>
+        <input type="file" id="fPhoto" accept="image/*">
+      </label>
+      <div class="preview" id="fPreview"></div>
+      <label for="fEmoji">Emoji, dacă nu pui poză
+        <input type="text" id="fEmoji" maxlength="4" autocomplete="off">
+      </label>
+      <div class="row" style="justify-content:flex-start">
+        <button type="submit" class="btn primary">Salvează</button>
+        <button type="button" class="btn" id="edRemovePhoto">Scoate poza</button>
+        <button type="button" class="btn danger" id="edDelete">Șterge cuvântul</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Progres si setari -->
+<div class="sheet" id="panel" hidden>
+  <div class="inner">
+    <div class="top"><h2>Progres și setări</h2><button type="button" class="btn" id="panelClose">Închide</button></div>
+    <div class="note" id="voiceNote"></div>
+    <button type="button" class="btn primary" id="testVoice">Testează sunetul</button>
+    <label for="rate">Viteza vocii: <span id="rateVal"></span>
+      <input type="range" id="rate" min="0.4" max="1" step="0.05">
+    </label>
+    <label style="flex-direction:row;align-items:center;gap:10px">
+      <input type="checkbox" id="voiceOn" style="width:24px;height:24px"> Voce pornită
+    </label>
+    <div class="micbox">
+      <strong>Copie de siguranță</strong>
+      <p class="hint">Pozele și cuvintele se salvează doar pe acest dispozitiv, pentru acest link. Ca să le muți pe alt link, copiezi datele de aici și le lipești acolo, la „Importă din text”.</p>
+      <div class="row" style="justify-content:flex-start">
+        <button type="button" class="btn" id="bkCopy">Copiază datele</button>
+        <button type="button" class="btn" id="bkImport">Importă din text</button>
+      </div>
+      <label for="bkText">Text de copiat sau de lipit
+        <textarea id="bkText" spellcheck="false" autocapitalize="off" autocorrect="off"></textarea>
+      </label>
+      <span class="okmsg" id="bkMsg" role="status"></span>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Cuvânt</th><th class="n">Încercări</th><th class="n">A spus</th><th>Ultima dată</th></tr></thead>
+        <tbody id="statsBody"></tbody>
+      </table>
+    </div>
+    <div class="note">
+      <strong>Cum îl folosești</strong>
+      <ul>
+        <li>Stai lângă ea, ia cardul în mână și spune cuvântul o dată, fără să ceri repetarea.</li>
+        <li>Așteaptă 5 până la 10 secunde. Orice răspuns, chiar și un sunet sau un gest, se răsplătește cu obiectul.</li>
+        <li>Folosește pozele reale ale lucrurilor pe care le vrea cel mai mult. Motivația face diferența.</li>
+        <li>Notează „a spus” doar când a scos un sunet sau un cuvânt. Contează și cuvintele pe jumătate.</li>
+        <li>Cere logopedului ei să aleagă primele 5 cuvinte de lucru și pune-le în prim-plan.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Exersam: alegerea lantului -->
+<div class="sheet" id="setup" hidden>
+  <div class="inner">
+    <div class="top"><h2>Lanțul de azi</h2><button type="button" class="btn" id="setupClose">Închide</button></div>
+    <p class="hint">Alege 3 până la 5 cuvinte. Aplicația le arată pe rând și trece mai departe doar când apeși tu „A încercat” sau „A spus”.</p>
+    <div class="micbox" id="pMicBox">
+      <label style="flex-direction:row;align-items:center;gap:10px">
+        <input type="checkbox" id="pMic" style="width:24px;height:24px;flex:none"> <span>Trece mai departe singură când aude un sunet (folosește microfonul)</span>
+      </label>
+      <label for="pSens">Cât de sensibil e microfonul
+        <select id="pSens">
+          <option value="low">Mică: doar sunete tari</option>
+          <option value="med">Medie</option>
+          <option value="high">Mare: aude și sunete încete</option>
+        </select>
+      </label>
+      <div class="row" style="justify-content:flex-start;align-items:center">
+        <button type="button" class="btn" id="pTest">Testează microfonul</button>
+        <span class="mstate" id="pMicState"></span>
+        <span class="okmsg" id="pTestOut"></span>
+      </div>
+      <div class="meter"><div class="mfill" id="pMeterFill"></div><i class="mthr"></i></div>
+      <p class="hint">Microfonul ascultă doar câteva secunde după ce aplicația spune cuvântul și nu înregistrează nimic. Orice sunet al ei se socotește încercare, nu verific dacă a zis cuvântul corect. Butoanele „A încercat” și „A spus” rămân oricând disponibile.</p>
+    </div>
+    <label for="pCat">Categorie
+      <select id="pCat"></select>
+    </label>
+    <div class="row" style="justify-content:flex-start">
+      <button type="button" class="btn" id="pickRandom">Alege 5 la întâmplare</button>
+      <button type="button" class="btn danger" id="pickClear" hidden>Șterge alegerea</button>
+    </div>
+    <div class="pickgrid" id="pickGrid"></div>
+    <div class="startbar">
+      <span id="pickCount"></span>
+      <button type="button" class="btn primary big" id="pickStart" disabled>Începe</button>
+    </div>
+  </div>
+</div>
+
+<!-- Exersam: lantul -->
+<div class="sheet" id="practice" hidden>
+  <div class="inner big-view">
+    <div class="top" style="width:100%">
+      <button type="button" class="btn" id="prClose">Oprește</button>
+      <div class="dots" id="prDots"></div>
+    </div>
+    <div class="prmain" id="prMain">
+      <div class="stage" id="prStage">
+        <div id="prPic"></div>
+        <div class="word" id="prWord"></div>
+      </div>
+      <div class="row"><button type="button" class="btn big primary" id="prHear">Ascultă</button></div>
+      <div class="micline" id="prMeter" hidden>
+        <span class="mstate" id="prMicState"></span>
+        <div class="meter"><div class="mfill" id="prMeterFill"></div><i class="mthr"></i></div>
+      </div>
+      <div class="praise" id="prPraise" aria-live="polite"></div>
+      <div class="parentbox">
+        <span>Pentru părinte</span>
+        <div class="row">
+          <button type="button" class="btn" id="prTried">A încercat</button>
+          <button type="button" class="btn primary" id="prSaid">A spus</button>
+          <button type="button" class="btn" id="prSkip">Mai târziu</button>
+        </div>
+      </div>
+    </div>
+    <div class="endview" id="prEnd" hidden>
+      <svg class="bigstar" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.5 6.8L12 17l-6.2 3.5 1.5-6.8L2.2 9l6.9-.7z"/></svg>
+      <h2>Bravo! Ai terminat!</h2>
+      <p id="prSummary"></p>
+      <div class="row">
+        <button type="button" class="btn big primary" id="prAgain">Încă o dată</button>
+        <button type="button" class="btn big" id="prDone">Gata</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var KEY = "primele-cuvinte-v1";
+  var DEFAULTS = [
+    { id: "mama", word: "Mama", syl: "ma-ma", emoji: "👩", kind: "persoana" },
+    { id: "tata", word: "Tata", syl: "ta-ta", emoji: "👨", kind: "persoana" },
+    { id: "apa", word: "Apă", syl: "a-pă", emoji: "💧", kind: "obiect" },
+    { id: "mar", word: "Măr", syl: "măr", emoji: "🍎", kind: "obiect" },
+    { id: "pisica", word: "Pisică", syl: "pi-si-că", emoji: "🐱", kind: "obiect" },
+    { id: "minge", word: "Minge", syl: "min-ge", emoji: "⚽", kind: "obiect" },
+    { id: "mai", word: "Mai vreau", syl: "mai vreau", emoji: "🙋", kind: "altceva" },
+    { id: "gata", word: "Gata", syl: "ga-ta", emoji: "✋", kind: "altceva" },
+    { id: "ajutor", word: "Ajutor", syl: "a-ju-tor", emoji: "🤝", kind: "altceva" }
+  ];
+  var state = { items: DEFAULTS.map(function (d) { return Object.assign({}, d); }), stats: {}, voice: true, rate: 0.7, mic: { enabled: false, sens: "med" } };
+  try {
+    var raw = localStorage.getItem(KEY);
+    if (raw) { var p = JSON.parse(raw); if (p && p.items) state = Object.assign(state, p); }
+  } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  /* Lista completa de cuvinte, pe categorii: [categorie, tip, [[cuvant, silabe, emoji], ...]] */
+  var CATS = ["Familie", "Mâncare", "Animale", "Jocuri", "Corp", "Casă", "Acțiuni", "Sentimente", "Salut", "Propoziții"];
+  var RAW = [
+    ["Familie", "persoana", [["Mama", "ma-ma", "👩"], ["Tata", "ta-ta", "👨"], ["Frate", "fra-te", "👦"], ["Soră", "so-ră", "👧"], ["Bunica", "bu-ni-ca", "👵"], ["Bunicul", "bu-ni-cul", "👴"], ["Bebe", "be-be", "👶"]]],
+    ["Mâncare", "obiect", [["Apă", "a-pă", "💧"], ["Măr", "măr", "🍎"], ["Banană", "ba-na-nă", "🍌"], ["Pară", "pa-ră", "🍐"], ["Struguri", "stru-guri", "🍇"], ["Căpșuni", "căp-șuni", "🍓"], ["Portocală", "por-to-ca-lă", "🍊"], ["Pâine", "pâi-ne", "🍞"], ["Lapte", "lap-te", "🥛"], ["Ou", "ou", "🥚"], ["Brânză", "brân-ză", "🧀"], ["Biscuit", "bis-cuit", "🍪"], ["Înghețată", "în-ghe-ța-tă", "🍦"], ["Suc", "suc", "🧃"], ["Ciocolată", "cio-co-la-tă", "🍫"], ["Morcov", "mor-cov", "🥕"], ["Supă", "su-pă", "🍲"], ["Paste", "pas-te", "🍝"], ["Pizza", "piz-za", "🍕"]]],
+    ["Animale", "animal", [["Pisică", "pi-si-că", "🐱"], ["Câine", "câi-ne", "🐶"], ["Cal", "cal", "🐴"], ["Vacă", "va-că", "🐮"], ["Oaie", "oa-ie", "🐑"], ["Pasăre", "pă-să-re", "🐦"], ["Pește", "peș-te", "🐟"], ["Rață", "ra-ță", "🦆"], ["Porc", "porc", "🐷"], ["Iepure", "ie-pu-re", "🐰"], ["Fluture", "flu-tu-re", "🦋"], ["Elefant", "e-le-fant", "🐘"]]],
+    ["Jocuri", "obiect", [["Minge", "min-ge", "⚽"], ["Mașină", "ma-și-nă", "🚗"], ["Păpușă", "pă-pu-șă", "🪆"], ["Cuburi", "cu-buri", "🧱"], ["Balon", "ba-lon", "🎈"], ["Carte", "car-te", "📖"], ["Muzică", "mu-zi-că", "🎵"], ["Tobă", "to-bă", "🥁"], ["Bicicletă", "bi-ci-cle-tă", "🚲"], ["Creioane", "cre-io-a-ne", "🖍️"], ["Bule", "bu-le", "🫧"], ["Tren", "tren", "🚂"], ["Avion", "a-vi-on", "✈️"], ["Tabletă", "ta-ble-tă", "📱"]]],
+    ["Corp", "altceva", [["Mână", "mâ-nă", "🖐️"], ["Picior", "pi-cior", "🦶"], ["Ochi", "ochi", "👀"], ["Gură", "gu-ră", "👄"], ["Nas", "nas", "👃"], ["Ureche", "u-re-che", "👂"], ["Dinți", "dinți", "🦷"]]],
+    ["Casă", "altceva", [["Casă", "ca-să", "🏠"], ["Pat", "pat", "🛏️"], ["Scaun", "sca-un", "🪑"], ["Ușă", "u-șă", "🚪"], ["Lumină", "lu-mi-nă", "💡"], ["Televizor", "te-le-vi-zor", "📺"], ["Baie", "ba-ie", "🛁"], ["Toaletă", "to-a-le-tă", "🚽"], ["Pantofi", "pan-to-fi", "👟"], ["Haine", "hai-ne", "👕"], ["Ghiozdan", "ghioz-dan", "🎒"]]],
+    ["Acțiuni", "altceva", [["Mai vreau", "mai vreau", "🙋"], ["Gata", "ga-ta", "✋"], ["Ajutor", "a-ju-tor", "🤝"], ["Da", "da", "👍"], ["Nu", "nu", "👎"], ["Hai", "hai", "👉"], ["Stai", "stai", "🛑"], ["Deschide", "des-chi-de", "🔓"], ["Mănânc", "mă-nânc", "🍽️"], ["Beau", "beau", "🥤"], ["Dorm", "dorm", "😴"], ["Mă joc", "mă joc", "🎲"], ["Spală-te", "spa-lă-te", "🧼"], ["Mulțumesc", "mul-țu-mesc", "🙏"], ["Te rog", "te rog", "🤲"], ["Pa", "pa", "👋"], ["Bună", "bu-nă", "😊"]]],
+    ["Sentimente", "altceva", [["Vesel", "ve-sel", "😀"], ["Trist", "trist", "😢"], ["Supărat", "su-pă-rat", "😠"], ["Speriat", "spe-ri-at", "😨"], ["Obosit", "o-bo-sit", "🥱"], ["Foame", "foa-me", "😋"], ["Sete", "se-te", "🚰"], ["Mă doare", "mă do-a-re", "🤕"], ["Cald", "cald", "🥵"], ["Frig", "frig", "🥶"], ["Îmi place", "îmi pla-ce", "❤️"], ["Te iubesc", "te iu-besc", "💕"]]],
+    ["Salut", "altceva", [["Salut", "sa-lut", "👋"], ["Bună ziua", "bu-nă zi-ua", "☀️"], ["Bună dimineața", "bu-nă di-mi-ne-a-ța", "🌅"], ["Bună seara", "bu-nă se-a-ra", "🌆"], ["Noapte bună", "noap-te bu-nă", "🌙"], ["La revedere", "la re-ve-de-re", "🚪"], ["Ce faci?", "ce faci", "🙂"], ["Bine", "bi-ne", "👌"], ["Scuze", "scu-ze", "😔"], ["Cu plăcere", "cu plă-ce-re", "😊"], ["Bine ai venit", "bi-ne ai ve-nit", "🤗"], ["La mulți ani", "la mulți ani", "🎂"], ["Sănătate", "să-nă-ta-te", "🤧"], ["Poftă bună", "pof-tă bu-nă", "🍽️"], ["Pupic", "pu-pic", "😘"], ["Îmbrățișare", "îm-bră-ți-șa-re", "🫂"]]],
+    ["Propoziții", "altceva", [["Vreau apă", "vreau-apă", "💧"], ["Vreau mâncare", "vreau-mân-ca-re", "🍽️"], ["Vreau mai mult", "vreau-mai-mult", "➕"], ["Vreau să mă joc", "vreau-să-mă-joc", "🎲"], ["Vreau la baie", "vreau-la-ba-ie", "🚽"], ["Vreau afară", "vreau-a-fa-ră", "🌳"], ["Vreau acasă", "vreau-a-ca-să", "🏠"], ["Vreau o îmbrățișare", "vreau-o-îm-bră-ți-șa-re", "🫂"], ["Mi-e foame", "mi-e-foa-me", "😋"], ["Mi-e sete", "mi-e-se-te", "🚰"], ["Mi-e somn", "mi-e-somn", "🥱"], ["Mi-e frig", "mi-e-frig", "🥶"], ["Mi-e cald", "mi-e-cald", "🥵"], ["Mă doare capul", "mă-do-a-re-ca-pul", "🤕"], ["Mă doare burta", "mă-do-a-re-bur-ta", "🤒"], ["Nu vreau", "nu-vreau", "🙅"], ["Nu mai vreau", "nu-mai-vreau", "✋"], ["Mai vreau puțin", "mai-vreau-pu-țin", "🙋"], ["Dă-mi, te rog", "dă-mi-te-rog", "🤲"], ["Ajută-mă", "a-ju-tă-mă", "🆘"], ["Vino aici", "vi-no-a-ici", "👉"], ["Mama, vino!", "ma-ma-vi-no", "👩"], ["Tata, vino!", "ta-ta-vi-no", "👨"], ["Hai la joacă", "hai-la-joa-că", "🛝"], ["Hai să mergem", "hai-să-mer-gem", "🚶"], ["Mă joc cu mingea", "mă-joc-cu-min-gea", "⚽"], ["Mănânc un măr", "mă-nânc-un-măr", "🍎"], ["Beau apă", "be-au-a-pă", "🥤"], ["Mă spăl pe mâini", "mă-spăl-pe-mâi-ni", "🧼"], ["Mă uit la desene", "mă-uit-la-de-se-ne", "📺"], ["Mă doare aici", "mă-do-a-re-a-ici", "👆"], ["Te iubesc, mama", "te-iu-besc-ma-ma", "💕"], ["Mulțumesc, tata", "mul-țu-mesc-ta-ta", "🙏"], ["Mă iubești?", "mă-iu-beș-ti", "🥹"], ["Sunt vesel", "sunt-ve-sel", "😀"], ["Sunt trist", "sunt-trist", "😢"], ["Sunt supărat", "sunt-su-pă-rat", "😠"], ["Mi-e frică", "mi-e-fri-că", "😨"], ["Vreau liniște", "vreau-li-niș-te", "🤫"]]]
+  ];
+  var IDMAP = { "Mama": "mama", "Tata": "tata", "Apă": "apa", "Măr": "mar", "Pisică": "pisica", "Minge": "minge", "Mai vreau": "mai", "Gata": "gata", "Ajutor": "ajutor" };
+  function slug(s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+  var ALL = [];
+  RAW.forEach(function (g) { g[2].forEach(function (w) { ALL.push({ id: IDMAP[w[0]] || "d_" + slug(w[0]), word: w[0], syl: w[1], emoji: w[2], kind: g[1], cat: g[0] }); }); });
+  /* Adauga cuvintele noi fara sa atinga ce a editat sau sters parintele */
+  if (!state.seen) state.seen = ["mama", "tata", "apa", "mar", "pisica", "minge", "mai", "gata", "ajutor"];
+  ALL.forEach(function (d) {
+    var have = state.items.filter(function (x) { return x.id === d.id; })[0];
+    if (have) { if (!have.cat) have.cat = d.cat; if (state.seen.indexOf(d.id) < 0) state.seen.push(d.id); }
+    else if (state.seen.indexOf(d.id) < 0) { state.items.push(Object.assign({}, d)); state.seen.push(d.id); }
+  });
+  save();
+  var cat = "Toate";
+  function visible(it) { return cat === "Toate" || (it.cat || "Altele") === cat; }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var mode = "word", parent = false, current = null, editingId = null, editorPhoto = null;
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function pic(it) { return it.img ? '<img src="' + it.img + '" alt="">' : '<span class="em">' + esc(it.emoji || "🙂") + '</span>'; }
+  function stat(id) { if (!state.stats[id]) state.stats[id] = { tried: 0, said: 0, last: "" }; return state.stats[id]; }
+  function today() { return new Date().toLocaleDateString("ro-RO", { day: "numeric", month: "short" }); }
+
+  /* Voce */
+  var voices = [];
+  function loadVoices() { try { voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; } catch (e) { voices = []; } }
+  loadVoices();
+  if (window.speechSynthesis) { try { speechSynthesis.onvoiceschanged = loadVoices; } catch (e) {} }
+  var toastT = null;
+  function toast(msg) {
+    var t = $("toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, 7000);
+  }
+  function speak(text, rate, onend) {
+    var fin = false;
+    function done() { if (fin) return; fin = true; if (onend) onend(); }
+    if (!state.voice) { if (onend) setTimeout(done, 0); return; }
+    if (!window.speechSynthesis) { toast("Acest browser nu poate vorbi. Deschide pagina în Safari."); if (onend) setTimeout(done, 0); return; }
+    try {
+      var ss = window.speechSynthesis;
+      if (ss.speaking || ss.pending) ss.cancel();
+      if (ss.paused) ss.resume();
+      loadVoices();
+      var u = new SpeechSynthesisUtterance(text);
+      var v = voices.filter(function (x) { return x.lang && x.lang.toLowerCase().indexOf("ro") === 0; })[0];
+      if (v) { u.voice = v; u.lang = v.lang; } else { u.lang = "ro-RO"; }
+      u.rate = rate || state.rate; u.volume = 1;
+      var started = false;
+      u.onstart = function () { started = true; };
+      u.onend = done;
+      u.onerror = function (ev) {
+        if (ev && (ev.error === "interrupted" || ev.error === "canceled")) return;
+        toast("Sunetul nu pornește. Verifică volumul și întrerupătorul de silent de pe marginea telefonului.");
+        done();
+      };
+      ss.speak(u);
+      if (onend) setTimeout(done, Math.max(2500, text.length * 400 + 1500));
+      setTimeout(function () {
+        if (!started && !ss.speaking) toast("Nu se aude? Verifică întrerupătorul de silent de pe marginea telefonului, volumul, și deschide linkul direct în Safari.");
+      }, 1800);
+    } catch (e) { toast("Sunetul nu a putut porni pe acest dispozitiv."); done(); }
+  }
+  function phrase(it) { return it.kind === "obiect" ? "Vreau " + it.word.toLowerCase() : it.word; }
+
+  /* Grila */
+  function render() {
+    var h = state.items.filter(visible).map(function (it) {
+      return '<button type="button" class="card ' + it.kind + '" data-id="' + esc(it.id) + '">' +
+        (parent ? '<span class="edit-tag" data-edit="' + esc(it.id) + '">Editează</span>' : "") +
+        '<span class="pic">' + pic(it) + '</span><span class="w">' + esc(it.word) + '</span></button>';
+    }).join("");
+    if (parent) h += '<button type="button" class="card add" id="addCard">+ Cuvânt nou</button>';
+    $("grid").innerHTML = h;
+  }
+  $("grid").addEventListener("click", function (e) {
+    var ed = e.target.closest("[data-edit]");
+    if (ed) { e.stopPropagation(); openEditor(ed.getAttribute("data-edit")); return; }
+    if (e.target.closest("#addCard")) { openEditor(null); return; }
+    var c = e.target.closest(".card[data-id]");
+    if (!c) return;
+    var it = state.items.filter(function (x) { return x.id === c.getAttribute("data-id"); })[0];
+    if (!it) return;
+    if (mode === "want") setSlot(it); else openView(it);
+  });
+
+  /* Moduri */
+  function setMode(m) {
+    mode = m;
+    $("mWord").setAttribute("aria-pressed", m === "word");
+    $("mWant").setAttribute("aria-pressed", m === "want");
+    $("bar").hidden = m !== "want";
+  }
+  $("mWord").onclick = function () { setMode("word"); };
+  $("mWant").onclick = function () { setMode("want"); };
+  var lastItem = null;
+  function setSlot(it) {
+    lastItem = it;
+    var s = $("slot"); s.className = "slot";
+    s.innerHTML = (it.img ? '<img src="' + it.img + '" alt="">' : '<span class="em">' + esc(it.emoji || "🙂") + '</span>') + "<span>" + esc(it.word) + "</span>";
+    speak(phrase(it), state.rate);
+  }
+  $("bar").onclick = function () { if (lastItem) speak(phrase(lastItem), state.rate); };
+
+  /* Vedere mare */
+  function openView(it) {
+    current = it;
+    $("stage").className = "stage " + it.kind;
+    $("viewPic").innerHTML = pic(it);
+    $("viewWord").textContent = it.word;
+    var syl = (it.syl && it.syl.indexOf("-") > -1) ? it.syl.replace(/-/g, " · ") : "";
+    $("viewSyl").textContent = syl;
+    $("hearSyl").hidden = !syl;    $("praise").innerHTML = "";
+    $("pcount").hidden = !parent;
+    $("view").hidden = false;
+    speak(it.word, state.rate);
+  }
+  $("viewClose").onclick = function () { $("view").hidden = true; try { speechSynthesis.cancel(); } catch (e) {} };
+  $("hear").onclick = function () { if (current) speak(current.word, state.rate); };
+  $("hearSyl").onclick = function () { if (current) speak(current.syl.replace(/-/g, ", "), 0.5); };
+  $("tryIt").onclick = function () {
+    if (!current) return;
+    var s = stat(current.id); s.tried++; s.last = today(); save();
+    $("praise").innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.5 6.8L12 17l-6.2 3.5 1.5-6.8L2.2 9l6.9-.7z"/></svg><span>Bravo, ai încercat!</span>';
+  };
+  $("logTried").onclick = function () { if (!current) return; var s = stat(current.id); s.tried++; s.last = today(); save(); flash($("logTried"), "a încercat +1 ✓"); };
+  $("logSaid").onclick = function () { if (!current) return; var s = stat(current.id); s.said++; s.last = today(); save(); flash($("logSaid"), "a spus +1 ✓"); };
+  function flash(btn, t) { var old = btn.textContent; btn.textContent = "Notat: " + t; setTimeout(function () { btn.textContent = old; }, 1300); }
+
+  /* Mod parinte (apasare lunga) */
+  var holdT = null, lock = $("lock");
+  function startHold(e) { e.preventDefault(); lock.classList.add("hold"); holdT = setTimeout(function () { lock.classList.remove("hold"); setParent(true); }, 1800); }
+  function endHold() { clearTimeout(holdT); lock.classList.remove("hold"); }
+  lock.addEventListener("pointerdown", startHold);
+  ["pointerup", "pointerleave", "pointercancel"].forEach(function (ev) { lock.addEventListener(ev, endHold); });
+  lock.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+  lock.addEventListener("keydown", function (e) { if (e.key === "Enter") setParent(true); });
+  function setParent(on) { parent = on; $("parentbar").hidden = !on; render(); }
+  $("exitParent").onclick = function () { setParent(false); };
+
+  /* Editor */
+  function openEditor(id) {
+    editingId = id;
+    var it = id ? state.items.filter(function (x) { return x.id === id; })[0] : null;
+    $("edTitle").textContent = it ? "Editează cuvântul" : "Cuvânt nou";
+    $("fWord").value = it ? it.word : "";
+    $("fSyl").value = it ? (it.syl || "") : "";
+    $("fKind").value = it ? it.kind : "obiect";
+    $("fCat").value = it ? (it.cat || "Altele") : (cat === "Toate" ? "Altele" : cat);
+    $("fEmoji").value = it ? (it.emoji || "") : "";
+    $("fPhoto").value = "";
+    editorPhoto = it && it.img ? it.img : null;
+    $("edDelete").hidden = !it;
+    drawPreview();
+    $("editor").hidden = false;
+  }
+  function drawPreview() {
+    $("fPreview").innerHTML = editorPhoto ? '<img src="' + editorPhoto + '" alt="Poza aleasă"><span>Poza este salvată pentru acest cuvânt.</span>' : "";
+    $("edRemovePhoto").hidden = !editorPhoto;
+  }
+  $("edCancel").onclick = function () { $("editor").hidden = true; };
+  $("edRemovePhoto").onclick = function () { editorPhoto = null; drawPreview(); };
+  $("fPhoto").addEventListener("change", function () {
+    var f = this.files && this.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        var max = 420, k = Math.min(1, max / Math.max(im.width, im.height));
+        var c = document.createElement("canvas"); c.width = Math.round(im.width * k); c.height = Math.round(im.height * k);
+        c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+        editorPhoto = c.toDataURL("image/jpeg", 0.82); drawPreview();
+      };
+      im.src = r.result;
+    };
+    r.readAsDataURL(f);
+  });
+  $("edForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var word = $("fWord").value.trim(); if (!word) return;
+    var rec = { word: word, syl: $("fSyl").value.trim().toLowerCase(), kind: $("fKind").value, cat: $("fCat").value, emoji: $("fEmoji").value.trim(), img: editorPhoto || "" };
+    if (editingId) {
+      state.items = state.items.map(function (x) { return x.id === editingId ? Object.assign({}, x, rec) : x; });
+    } else {
+      rec.id = "w" + Date.now(); state.items.push(rec);
+    }
+    save(); $("editor").hidden = true; render();
+  });
+  $("edDelete").onclick = function () {
+    if (!editingId) return;
+    state.items = state.items.filter(function (x) { return x.id !== editingId; });
+    save(); $("editor").hidden = true; render();
+  };
+
+  /* Panou */
+  function voiceNote() {
+    loadVoices();
+    var hasRo = voices.some(function (v) { return v.lang && v.lang.toLowerCase().indexOf("ro") === 0; });
+    var ok = !!window.speechSynthesis;
+    $("voiceNote").innerHTML = !ok ? '<span class="warn">Acest browser nu are voce.</span> Cuvintele se văd, dar nu se aud. Încearcă în Chrome sau Safari.' :
+      hasRo ? "Vocea în română este disponibilă pe acest dispozitiv." :
+      '<span class="warn">Nu am găsit voce în română.</span> În setările tabletei, la Accesibilitate sau Limbă, poți descărca o voce în română. Până atunci, pronunția poate suna ciudat.';
+  }
+  function fillStats() {
+    $("statsBody").innerHTML = state.items.map(function (it) {
+      var s = state.stats[it.id] || { tried: 0, said: 0, last: "" };
+      return "<tr><td>" + esc(it.word) + '</td><td class="n">' + s.tried + '</td><td class="n">' + s.said + "</td><td>" + (s.last || "–") + "</td></tr>";
+    }).join("");
+  }
+  $("openPanel").onclick = function () {
+    voiceNote(); fillStats();
+    $("rate").value = state.rate; $("rateVal").textContent = state.rate.toFixed(2);
+    $("voiceOn").checked = state.voice;
+    $("panel").hidden = false;
+  };
+  $("testVoice").onclick = function () { speak("Bună ziua. Acesta este un test.", state.rate); };
+  $("panelClose").onclick =function () { $("panel").hidden = true; };
+  $("rate").oninput = function () { state.rate = parseFloat(this.value); $("rateVal").textContent = state.rate.toFixed(2); save(); };
+  $("voiceOn").onchange = function () { state.voice = this.checked; save(); };
+
+  /* Exersam: lantul de cuvinte */
+  function byId(id) { return state.items.filter(function (x) { return x.id === id; })[0]; }
+  var chain = (Array.isArray(state.chain) ? state.chain : []).filter(byId);
+  var run = { i: 0, tried: 0, said: 0, busy: false, sid: 0, mic: false };
+  function saveChain() { state.chain = chain.slice(); save(); }
+  function renderPick() {
+    var pc = $("pCat").value || "Toate";
+    chain = chain.filter(byId);
+    var list = state.items.filter(function (it) { return pc === "Toate" || (it.cat || "Altele") === pc; });
+    $("pickGrid").innerHTML = list.map(function (it) {
+      var n = chain.indexOf(it.id);
+      return '<button type="button" class="pick' + (n > -1 ? " on" : "") + '" data-id="' + esc(it.id) + '" aria-pressed="' + (n > -1) + '">' +
+        (n > -1 ? '<span class="ord">' + (n + 1) + "</span>" : "") +
+        '<span class="pe">' + (it.img ? '<img src="' + it.img + '" alt="">' : esc(it.emoji || "🙂")) + "</span><span>" + esc(it.word) + "</span></button>";
+    }).join("");
+    $("pickCount").textContent = chain.length ? "Alese: " + chain.length + (chain.length > 7 ? " (sunt multe, încearcă mai puține)" : "") : "Nu ai ales încă niciun cuvânt";
+    $("pickStart").disabled = chain.length === 0;
+    $("pickClear").hidden = chain.length === 0;
+  }
+  $("mPractice").onclick = function () {
+    renderPick();
+    var mc = state.mic || { enabled: false, sens: "med" };
+    $("pMic").checked = !!mc.enabled; $("pSens").value = mc.sens || "med";
+    $("pMicBox").hidden = !micSupported();
+    $("pTestOut").textContent = "";
+    $("setup").hidden = false;
+  };
+  $("setupClose").onclick = function () { stopListening(); $("setup").hidden = true; };
+  $("pCat").onchange = renderPick;
+  $("pickGrid").addEventListener("click", function (e) {
+    var b = e.target.closest(".pick"); if (!b) return;
+    var id = b.getAttribute("data-id"), k = chain.indexOf(id);
+    if (k > -1) chain.splice(k, 1); else chain.push(id);
+    saveChain(); renderPick();
+  });
+  $("pickClear").onclick = function () { chain = []; saveChain(); renderPick(); };
+  $("pickRandom").onclick = function () {
+    var pc = $("pCat").value || "Toate";
+    var list = state.items.filter(function (it) { return pc === "Toate" || (it.cat || "Altele") === pc; }).map(function (it) { return it.id; });
+    for (var i = list.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = list[i]; list[i] = list[j]; list[j] = t; }
+    chain = list.slice(0, 5); saveChain(); renderPick();
+  };
+  /* Microfon: detecteaza orice sunet, nu recunoaste cuvinte */
+  var mic = { token: 0, stream: null, ctx: null, timer: null };
+  function micSupported() { return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && (window.AudioContext || window.webkitAudioContext)); }
+  function stopListening() {
+    mic.token++;
+    if (mic.timer) { clearInterval(mic.timer); mic.timer = null; }
+    if (mic.stream) { try { mic.stream.getTracks().forEach(function (t) { t.stop(); }); } catch (e) {} mic.stream = null; }
+    if (mic.ctx) { try { mic.ctx.close(); } catch (e) {} mic.ctx = null; }
+    Array.prototype.forEach.call(document.querySelectorAll(".mfill"), function (f) { f.style.width = "0%"; });
+    Array.prototype.forEach.call(document.querySelectorAll(".mstate"), function (f) { f.textContent = ""; });
+  }
+  var SENS = { low: { mult: 3.2, min: 0.045 }, med: { mult: 2.4, min: 0.03 }, high: { mult: 1.8, min: 0.02 } };
+  function startListening(sens, fillEl, stateEl, onHeard, onSilence) {
+    stopListening();
+    var token = mic.token;
+    var cfg = SENS[sens] || SENS.med;
+    if (stateEl) stateEl.textContent = "Se pregătește…";
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } }).then(function (stream) {
+      if (token !== mic.token) { stream.getTracks().forEach(function (t) { t.stop(); }); return; }
+      var AC = window.AudioContext || window.webkitAudioContext;
+      var ctx = new AC();
+      try { if (ctx.state === "suspended") ctx.resume(); } catch (e) {}
+      var src = ctx.createMediaStreamSource(stream);
+      var an = ctx.createAnalyser(); an.fftSize = 1024; src.connect(an);
+      mic.stream = stream; mic.ctx = ctx;
+      var buf = new Uint8Array(an.fftSize);
+      var t0 = Date.now(), last = t0, base = [], thr = null, loud = 0;
+      mic.timer = setInterval(function () {
+        an.getByteTimeDomainData(buf);
+        var s = 0; for (var i = 0; i < buf.length; i++) { var x = (buf[i] - 128) / 128; s += x * x; }
+        var rms = Math.sqrt(s / buf.length);
+        var now = Date.now(), dt = now - last; last = now;
+        if (now - t0 < 800) { base.push(rms); return; }
+        if (thr === null) {
+          var m = base.reduce(function (a, b) { return a + b; }, 0) / Math.max(1, base.length);
+          thr = Math.max(cfg.min, m * cfg.mult + 0.01);
+          if (stateEl) stateEl.textContent = "Te ascult…";
+        }
+        if (fillEl) fillEl.style.width = Math.min(100, (rms / thr) * 50) + "%";
+        if (rms > thr) loud += dt; else loud = Math.max(0, loud - dt);
+        if (loud >= 200) { stopListening(); onHeard(); return; }
+        if (now - t0 > 30000) { stopListening(); if (onSilence) onSilence(); }
+      }, 50);
+    }).catch(function () {
+      if (token !== mic.token) return;
+      if (stateEl) stateEl.textContent = "";
+      toast("Microfonul nu pornește. Permite microfonul pentru această pagină în Safari.");
+      if (onSilence) onSilence();
+    });
+  }
+  document.addEventListener("visibilitychange", function () { if (document.hidden) stopListening(); });
+
+  function startPractice(useMic) {
+    stopListening();
+    run = { i: 0, tried: 0, said: 0, busy: false, sid: 0, mic: !!useMic };
+    $("setup").hidden = true; $("practice").hidden = false;
+    showStep();
+  }
+  function beginRun() {
+    var wantMic = $("pMic").checked && micSupported();
+    state.mic = { enabled: $("pMic").checked, sens: $("pSens").value }; save();
+    if (!wantMic) { startPractice(false); return; }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function (s) {
+      s.getTracks().forEach(function (t) { t.stop(); });
+      startPractice(true);
+    }).catch(function () {
+      toast("Microfonul nu a fost permis. Mergem fără el: apeși tu „A încercat”.");
+      startPractice(false);
+    });
+  }
+  $("pickStart").onclick = beginRun;
+  $("prAgain").onclick = beginRun;
+  function listenNow(sid) {
+    $("prMeter").hidden = false;
+    startListening($("pSens").value, $("prMeterFill"), $("prMicState"), function () {
+      if (sid === run.sid && !run.busy) answer("tried", true);
+    }, function () {
+      if (sid === run.sid) $("prMicState").textContent = "Nu am auzit nimic. Apasă „Ascultă” ca să încercăm din nou.";
+    });
+  }
+  function sayAndListen(it, sid) {
+    speak(it.word, state.rate, function () {
+      if (sid !== run.sid || run.busy || !run.mic) return;
+      setTimeout(function () { if (sid === run.sid && !run.busy) listenNow(sid); }, 500);
+    });
+  }
+  function showStep() {
+    stopListening();
+    var ids = chain.filter(byId);
+    if (run.i >= ids.length) { finishPractice(); return; }
+    var it = byId(ids[run.i]);
+    run.sid++;
+    var sid = run.sid;
+    $("prMain").hidden = false; $("prEnd").hidden = true; $("prMeter").hidden = true;
+    $("prStage").className = "stage " + it.kind;
+    $("prPic").innerHTML = pic(it);
+    $("prWord").textContent = it.word;
+    $("prDots").innerHTML = ids.map(function (_, k) { return '<span class="dot' + (k < run.i ? " done" : k === run.i ? " now" : "") + '"></span>'; }).join("");
+    $("prPraise").innerHTML = "";
+    run.busy = false;
+    sayAndListen(it, sid);
+  }
+  function finishPractice() {
+    stopListening();
+    $("prMain").hidden = true; $("prEnd").hidden = false;
+    var ids = chain.filter(byId);
+    $("prDots").innerHTML = ids.map(function () { return '<span class="dot done"></span>'; }).join("");
+    $("prSummary").textContent = "A încercat: " + run.tried + ". A spus: " + run.said + ".";
+    speak("Bravo! Ai terminat!", state.rate);
+  }
+  function answer(kind, auto) {
+    if (run.busy) return;
+    var ids = chain.filter(byId), it = byId(ids[run.i]); if (!it) return;
+    run.busy = true;
+    stopListening();
+    $("prMeter").hidden = true;
+    var s = stat(it.id);
+    if (kind === "said") { s.said++; run.said++; } else { s.tried++; run.tried++; }
+    s.last = today(); save();
+    var msg = auto ? "Bravo, te-am auzit!" : (kind === "said" ? "Bravo, ai spus!" : "Bravo, ai încercat!");
+    $("prPraise").innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.7 1.5 6.8L12 17l-6.2 3.5 1.5-6.8L2.2 9l6.9-.7z"/></svg><span>' + msg + "</span>";
+    var sid = run.sid;
+    setTimeout(function () { if (sid !== run.sid || $("practice").hidden) return; run.i++; showStep(); }, 1500);
+  }
+  $("prTried").onclick = function () { answer("tried", false); };
+  $("prSaid").onclick = function () { answer("said", false); };
+  $("prSkip").onclick = function () { if (run.busy) return; run.i++; showStep(); };
+  $("prHear").onclick = function () {
+    if (run.busy) return;
+    var ids = chain.filter(byId), it = byId(ids[run.i]); if (!it) return;
+    stopListening(); $("prMeter").hidden = true;
+    run.sid++;
+    sayAndListen(it, run.sid);
+  };
+  $("prClose").onclick = function () { run.sid++; stopListening(); $("practice").hidden = true; try { speechSynthesis.cancel(); } catch (e) {} };
+  $("prDone").onclick = $("prClose").onclick;
+  $("pTest").onclick = function () {
+    $("pTestOut").textContent = "";
+    startListening($("pSens").value, $("pMeterFill"), $("pMicState"), function () { $("pTestOut").textContent = "Am auzit un sunet ✓"; }, function () {});
+  };
+
+  /* Copie de siguranta */
+  $("bkCopy").onclick = function () {
+    var data = JSON.stringify({ app: "primele-cuvinte", v: 1, items: state.items, stats: state.stats, voice: state.voice, rate: state.rate, chain: chain, seen: state.seen, mic: state.mic });
+    $("bkText").value = data;
+    var ok = function () { $("bkMsg").textContent = "Copiat. Lipește textul în pagina nouă, la „Importă din text”."; };
+    var no = function () { $("bkText").focus(); $("bkText").select(); $("bkMsg").textContent = "Selectează tot textul din casetă și copiază-l."; };
+    try { navigator.clipboard.writeText(data).then(ok, no); } catch (e) { no(); }
+  };
+  $("bkImport").onclick = function () {
+    try {
+      var d = JSON.parse($("bkText").value.trim());
+      if (!d || !Array.isArray(d.items) || !d.items.length) throw new Error("bad");
+      var kinds = ["persoana", "obiect", "altceva", "animal"];
+      var okImg = /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+\/=]+$/;
+      var items = d.items.filter(function (x) { return x && typeof x.id === "string" && typeof x.word === "string"; }).map(function (x) {
+        return {
+          id: x.id.slice(0, 60), word: x.word.slice(0, 40), syl: typeof x.syl === "string" ? x.syl.slice(0, 80) : "",
+          emoji: typeof x.emoji === "string" ? x.emoji.slice(0, 8) : "", kind: kinds.indexOf(x.kind) > -1 ? x.kind : "obiect",
+          cat: typeof x.cat === "string" ? x.cat.slice(0, 30) : "Altele", img: typeof x.img === "string" && okImg.test(x.img) ? x.img : ""
+        };
+      });
+      if (!items.length) throw new Error("bad");
+      var stats = {};
+      if (d.stats && typeof d.stats === "object") Object.keys(d.stats).forEach(function (k) {
+        var v = d.stats[k] || {};
+        stats[k] = { tried: +v.tried || 0, said: +v.said || 0, last: typeof v.last === "string" ? v.last.slice(0, 20) : "" };
+      });
+      state.items = items; state.stats = stats;
+      if (typeof d.voice === "boolean") state.voice = d.voice;
+      if (typeof d.rate === "number" && d.rate >= 0.3 && d.rate <= 1.2) state.rate = d.rate;
+      state.chain = Array.isArray(d.chain) ? d.chain.filter(function (x) { return typeof x === "string"; }) : [];
+      if (Array.isArray(d.seen)) state.seen = d.seen.filter(function (x) { return typeof x === "string"; });
+      if (d.mic && SENS[d.mic.sens]) state.mic = { enabled: !!d.mic.enabled, sens: d.mic.sens };
+      save();
+      $("bkMsg").textContent = "Importat. Se reîncarcă pagina…";
+      setTimeout(function () { try { location.reload(); } catch (e) { $("bkMsg").textContent = "Importat. Redeschide pagina."; } }, 400);
+    } catch (e) { $("bkMsg").textContent = "Textul nu pare o copie validă. Copiază-l din nou, complet."; }
+  };
+
+  function renderChips() {
+    $("pCat").innerHTML = ["Toate"].concat(CATS, ["Altele"]).map(function (n) { return '<option value="' + esc(n) + '">' + esc(n) + "</option>"; }).join("");
+    var names = ["Toate"].concat(CATS, ["Altele"]);
+    $("chips").innerHTML = names.map(function (n) {
+      return '<button type="button" class="chip" data-cat="' + esc(n) + '" aria-pressed="' + (n === cat) + '">' + esc(n) + "</button>";
+    }).join("");
+    $("fCat").innerHTML = CATS.concat(["Altele"]).map(function (n) { return '<option value="' + esc(n) + '">' + esc(n) + "</option>"; }).join("");
+  }
+  $("chips").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    cat = b.getAttribute("data-cat"); renderChips(); render(); window.scrollTo(0, 0);
+  });
+  renderChips();
+  render();
+})();
+</script>
+</body>
+</html>
